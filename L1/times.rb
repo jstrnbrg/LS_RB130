@@ -1,9 +1,16 @@
 def times(n)
-  (0...n).each do |x|
-    yield(x)
+  counter = 0
+  loop do
+    break if counter == n
+    yield(counter)
+    counter += 1
   end
   n
 end
 
-returned = times(5) {|n| puts n}
-puts returned
+
+returned =  times(5) do |num|
+  puts num
+end
+
+p returned
